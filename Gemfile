@@ -29,6 +29,8 @@ gem 'therubyracer'
 gem 'uglifier'
 gem 'unicorn'
 
+gem 'ridgepole'
+
 group :development, :test do
   gem 'capistrano'
   gem 'capistrano-bundler'
