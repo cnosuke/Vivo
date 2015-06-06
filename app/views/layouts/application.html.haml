@@ -6,4 +6,9 @@
     = csrf_meta_tag
 
   %body
-    = yield
+    %header
+      = render 'layouts/header'
+    .contents
+      = yield
+    %footer
+      = render 'layouts/footer'
