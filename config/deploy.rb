@@ -20,28 +20,23 @@ set :keep_releases, 5
 
 set :exec_dotenv, 'bundle exec dotenv'
 
-after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
-  task :restart do
+  after :publishing, :restart do
     invoke 'unicorn:restart'
   end
-end
 
-namespace :db do
-  task :migrate do
+  after :publishing, :migrate do
     on roles(:db) do
       execute "cd #{fetch(:deploy_to)}/current && #{fetch(:rbenv_prefix)} #{fetch(:exec_dotenv)} bundle exec ridgepole -E #{fetch(:stage)} -c config/database.yml --apply"
     end
   end
 
-  task :export do
+  after :publishing, :export do
     on roles(:db) do
       execute "cd #{fetch(:deploy_to)}/current && #{fetch(:rbenv_prefix)} #{fetch(:exec_dotenv)} bundle exec ridgepole -E #{fetch(:stage)} -c config/database.yml --export -o Schemafile"
     end
   end
-end
 
-namespace :deploy do
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
@@ -50,7 +45,6 @@ namespace :deploy do
       # end
     end
   end
-
 end
 
 
