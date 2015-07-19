@@ -33,7 +33,7 @@ namespace :deploy do
 
   after :publishing, :export do
     on roles(:db) do
-      execute "cd #{fetch(:deploy_to)}/current && #{fetch(:rbenv_prefix)} #{fetch(:exec_dotenv)} bundle exec ridgepole -E #{fetch(:stage)} -c config/database.yml --export -o Schemafile"
+      execute "cd #{fetch(:release_path)} && #{fetch(:rbenv_prefix)} #{fetch(:exec_dotenv)} bundle exec ridgepole -E #{fetch(:stage)} -c config/database.yml --export -o Schemafile"
     end
   end
 
