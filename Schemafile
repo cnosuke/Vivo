@@ -2,8 +2,8 @@ create_table "notes", force: :cascade do |t|
   t.integer "user_id",    limit: 4,     null: false
   t.string  "title",      limit: 256
   t.text    "content",    limit: 65535
-  t.date    "created_at",               null: false
-  t.date    "updated_at",               null: false
+  t.datetime    "created_at",               null: false
+  t.datetime    "updated_at",               null: false
 end
 
 create_table "users", force: :cascade do |t|
@@ -13,6 +13,6 @@ create_table "users", force: :cascade do |t|
   t.string "avatar_url", limit: 256
   t.string "provider",   limit: 32,  default: "", null: false
   t.string "uid",        limit: 128, default: "", null: false
-  t.date   "created_at",                          null: false
-  t.date   "updated_at",                          null: false
+  t.datetime   "created_at",                          null: false
+  t.datetime   "updated_at",                          null: false
 end
