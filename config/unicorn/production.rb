@@ -49,3 +49,8 @@ after_fork do |server, worker|
     ActiveRecord::Base.establish_connection
   end
 end
+
+before_exec do |server|
+  # cf. http://eagletmt.hateblo.jp/entry/2015/02/21/015956
+  Dotenv.overload
+end
