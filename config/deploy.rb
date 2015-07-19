@@ -18,6 +18,8 @@ set :linked_files, fetch(:linked_files, []).push('.env', 'config/secrets.yml')
 
 set :keep_releases, 5
 
+set :exec_dotenv, 'bundle exec dotenv'
+
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
@@ -25,10 +27,16 @@ namespace :deploy do
   end
 end
 
-namespace :deploy do
-  after :published, :ridgepole do
+namespace :db do
+  task :migrate do
     on roles(:db) do
-      execute "cd #{fetch(:release_path)}; bundle exec ridgepole -E #{fetch(:stage)} -c database.yml --apply"
+      execute "cd #{fetch(:deploy_to)}/current && #{fetch(:rbenv_prefix)} #{fetch(:exec_dotenv)} bundle exec ridgepole -E #{fetch(:stage)} -c config/database.yml --apply"
+    end
+  end
+
+  task :export do
+    on roles(:db) do
+      execute "cd #{fetch(:deploy_to)}/current && #{fetch(:rbenv_prefix)} #{fetch(:exec_dotenv)} bundle exec ridgepole -E #{fetch(:stage)} -c config/database.yml --export -o Schemafile"
     end
   end
 end

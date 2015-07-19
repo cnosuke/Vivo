@@ -18,5 +18,3 @@
 
 .env
 /vendor/*
-
-ridgepole_config.yml
