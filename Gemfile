@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.3'
 
 gem 'bootstrap-sass'
 gem 'bootswatch-rails'
@@ -37,6 +37,7 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano-sidekiq'
+  gem 'capistrano3-unicorn'
   gem 'factory_girl'
   gem 'pry-byebug'
   gem 'pry-doc'
@@ -47,3 +48,5 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'timecop'
 end
+
+gem 'turbolinks' #adhoc
