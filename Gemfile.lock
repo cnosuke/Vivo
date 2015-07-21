@@ -300,8 +300,6 @@ GEM
     timecop (0.7.4)
     timers (4.0.1)
       hitimes
-    turbolinks (2.5.3)
-      coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.1)
@@ -361,7 +359,6 @@ DEPENDENCIES
   spring-commands-rspec
   therubyracer
   timecop
-  turbolinks
   uglifier
   unicorn
 

@@ -48,5 +48,3 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'timecop'
 end
-
-gem 'turbolinks' #adhoc
