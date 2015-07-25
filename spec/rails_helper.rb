@@ -7,6 +7,15 @@ require 'spec_helper'
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 
+require 'capybara/poltergeist'
+require 'rack_session_access/capybara'
+
+Capybara.javascript_driver = :poltergeist
+
+# Require all of support files and factories
+Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f }
+Dir[Rails.root.join("spec/factories/**/*.rb")].each {|f| require f }
+
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -50,7 +59,6 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
   config.include Capybara::DSL
+  config.include LoginHelper
+  config.include FactoryGirl::Syntax::Methods
 end
-
-require 'capybara/poltergeist'
-Capybara.javascript_driver = :poltergeist
