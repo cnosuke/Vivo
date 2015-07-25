@@ -203,6 +203,9 @@ GEM
     rack-user_agent (0.3.0)
       rack (~> 1.5)
       woothee (~> 1.0.0)
+    rack_session_access (0.1.1)
+      builder (>= 2.0.0)
+      rack (>= 1.0.0)
     rails (4.2.3)
       actionmailer (= 4.2.3)
       actionpack (= 4.2.3)
@@ -368,6 +371,7 @@ DEPENDENCIES
   pry-doc
   pry-rails
   rack-user_agent
+  rack_session_access
   rails (= 4.2.3)
   redis-rails
   ridgepole

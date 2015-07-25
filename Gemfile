@@ -49,4 +49,5 @@ group :development, :test do
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'timecop'
+  gem 'rack_session_access'
 end
