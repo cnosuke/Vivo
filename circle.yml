@@ -7,6 +7,10 @@ dependencies:
     - docker info
     - docker build -t cnosuke/vivo .
 
+test:
+  override:
+    - echo 'OK'
+
 deployment:
   hub:
     branch: master
