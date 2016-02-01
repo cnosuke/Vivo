@@ -1,5 +1,5 @@
 FROM cnosuke/ruby23-base
-MAINTAINER cnosuke
+MAINTAINER shinnosuke@gmail.com
 
 RUN apt-get update
 RUN apt-get install -y mysql-client libmysqlclient-dev
