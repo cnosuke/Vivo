@@ -7,9 +7,13 @@ dependencies:
     - docker info
     - docker build -t cnosuke/vivo .
 
+database:
+  override:
+    - echo 'Do nothing'
+
 test:
   override:
-    - echo 'OK'
+    - echo 'Do nothing'
 
 deployment:
   hub:
